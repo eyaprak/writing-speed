@@ -3,12 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ThemeContextProvider from './Contexts/ThemeContext'
+import TextInputContextProvider from './Contexts/TextInputContext';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const AppConnector = () => {
+  return (
+    <ThemeContextProvider>
+      <TextInputContextProvider>
+        <App />
+      </TextInputContextProvider>
+    </ThemeContextProvider>
+  )
+}
+
+
+ReactDOM.render(<AppConnector />, document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
