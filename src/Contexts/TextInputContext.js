@@ -1,4 +1,5 @@
-import React, { Component, createContext } from 'react'
+import React, { createContext, useState, useReducer, useEffect } from 'react'
+import { textReducer } from '../Reducers/textReducer';
 
 export const TextInputContext = createContext();
 const initState = {
@@ -10,27 +11,75 @@ const initState = {
     selected: 1,
     index: 4
 }
+const initResult = [
+    {
+        id: 1, textId: 2, scores: {
+            duration: 2.5,
+            accuracy: 83,
+            wordsPerMinute: 50
+        }
+    },
+    {
+        id: 22, textId: 3, scores: {
+            duration: 33,
+            accuracy: 44,
+            wordsPerMinute: 12
+        }
+    }
 
+]
+/*
 
-class TextInputContextProvider extends Component {
-    state = initState;
-    addText = (text) => {
-        let id = this.state.index;
+*/
+
+const TextInputContextProvider = (props) => {
+    const [state, dispatch] = useReducer(textReducer, initState, () => {
+        const data = localStorage.getItem('texts')
+        return data ? JSON.parse(data) : initState;
+    })
+    //const [state, setState] = useState(initState);
+    const data = localStorage.getItem('results');
+    const [results, setResults] = useState(data ? JSON.parse(data) : initResult)
+
+    /*
+    const addText = (text) => {
+        let id = state.index;
         const newText = { ...text, id }
-        this.setState({
-            ...this.state,
-            texts: [...this.state.texts, newText],
+        setState({
+            ...state,
+            texts: [...state.texts, newText],
             index: id + 1
         })
     }
 
-    render() {
-        return (
-            <TextInputContext.Provider value={{ ...this.state, addText: this.addText }}>
-                {this.props.children}
-            </TextInputContext.Provider>
-        )
+    const setSelected = (id) => {
+        setState({
+            ...state,
+            selected: id
+        })
     }
+    */
+
+    useEffect(() => {
+        localStorage.setItem('texts', JSON.stringify(state));
+    }, [state])
+
+    useEffect(() => {
+        localStorage.setItem('results', JSON.stringify(results))
+    }, [results])
+
+    const addResult = (result) => {
+        setResults([
+            ...results, result
+        ])
+    }
+
+    return (
+        <TextInputContext.Provider value={{ ...state, results: [...results], dispatch, addResult }}>
+            {props.children}
+        </TextInputContext.Provider>
+    )
+
 }
 
 export default TextInputContextProvider;

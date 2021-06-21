@@ -27,7 +27,7 @@ class Navbar extends React.Component {
                         </li>
                     </ul>
                 </div>
-                <button type="button" className={theme.toogleButton} onClick={this.context.changeTheme}>{isDark ? "Koyu Tema" : "Açık Tema"}</button>
+                <button type="button" className={`${theme.toogleButton} mr-1`} onClick={this.context.changeTheme}>{isDark ? <span>Açık Tema <i class="far fa-lightbulb"></i></span> : <span>Koyu Tema <i class="fas fa-lightbulb"></i></span>}</button>
             </nav>
         );
     }

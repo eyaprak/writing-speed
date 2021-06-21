@@ -2,13 +2,12 @@ import React from 'react'
 import Info from './Info'
 import TextInput from './TextInput'
 import Score from './Score'
+import SelectText from './SelectText'
 const initState = {
     result: null
 }
 
 class SpeedCheck extends React.Component {
-
-    challenge = "Hello React";
     state = initState
 
     setResult = (result) => {
@@ -23,12 +22,14 @@ class SpeedCheck extends React.Component {
         })
     }
     render() {
-        const {result} = this.state
+        const { result } = this.state
         return (
             <React.Fragment>
+                <SelectText />
+                <hr />
                 <Info />
                 <hr />
-                <TextInput challenge={this.challenge} setResult={this.setResult} resetResult={this.resetResult} />
+                <TextInput setResult={this.setResult} resetResult={this.resetResult} />
                 <hr />
                 {result !== null ? <Score values={this.state.result} /> : ""}
             </React.Fragment >

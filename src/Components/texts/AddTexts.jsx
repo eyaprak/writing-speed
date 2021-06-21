@@ -8,7 +8,7 @@ const initState = {
 const AddTexts = () => {
     const [texts, setTexts] = useState(initState)
 
-    const { addText } = useContext(TextInputContext)
+    const { dispatch } = useContext(TextInputContext)
     const theme = useContext(ThemeContext).getTheme();
 
     const changeHandler = (e) => {
@@ -20,7 +20,8 @@ const AddTexts = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        addText(texts)
+        dispatch({type: 'ADD_TEXT', texts})
+        //addText(texts)
         setTexts(initState)
     }
     return (
