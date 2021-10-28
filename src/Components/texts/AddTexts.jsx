@@ -27,13 +27,13 @@ const AddTexts = () => {
     return (
         <div className={`card ${theme.card} border`}>
             <div className="card-header text-center">
-                <h4 className="card-title">Metin Ekle</h4>
+                <h4 className="card-title">Add Text</h4>
             </div>
             <div className="card-body">
                 <form onSubmit={submitHandler}>
                     <div className="form-group">
-                        <label htmlFor="text">Metin:</label>
-                        <input type="text" name="text" className="form-control" onChange={changeHandler} value={texts.text} autoComplete="off" placeholder="Metni giriniz..." required />
+                        <label htmlFor="text">Text:</label>
+                        <input type="text" name="text" className="form-control" onChange={changeHandler} value={texts.text} autoComplete="off" placeholder="Write text..." required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="difficulty">Diffuculty: </label>
@@ -44,7 +44,7 @@ const AddTexts = () => {
                             <option value="hard">Hard</option>
                         </select>
                     </div>
-                    <button className={`btn ${theme.button} mt-2`} type="submit">Kaydet</button>
+                    <button className={`btn ${theme.button} mt-2`} type="submit">Save</button>
                 </form>
             </div>
         </div>

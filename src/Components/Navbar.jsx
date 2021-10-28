@@ -10,7 +10,7 @@ class Navbar extends React.Component {
         const isDark = this.context.isDarkTheme;
         return (
             <nav className={`navbar navbar-expand-lg ${theme.navbar} rounded mb-2`}>
-                <NavLink className="navbar-brand p-2" to="/">YazTest</NavLink>
+                <NavLink className="navbar-brand p-2" to="/">WritingSpeedTest</NavLink>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -27,7 +27,7 @@ class Navbar extends React.Component {
                         </li>
                     </ul>
                 </div>
-                <button type="button" className={`${theme.toogleButton} mr-1`} onClick={this.context.changeTheme}>{isDark ? <span>Açık Tema <i class="far fa-lightbulb"></i></span> : <span>Koyu Tema <i class="fas fa-lightbulb"></i></span>}</button>
+                <button type="button" className={`${theme.toogleButton} mr-1`} onClick={this.context.changeTheme}>{isDark ? <span>Light Theme <i class="far fa-lightbulb"></i></span> : <span>Dark Theme <i class="fas fa-lightbulb"></i></span>}</button>
             </nav>
         );
     }

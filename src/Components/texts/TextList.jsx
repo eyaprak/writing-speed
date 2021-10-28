@@ -23,8 +23,8 @@ const TextList = () => {
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Metin</th>
-                            <th>Zorluk</th>
+                            <th>Text</th>
+                            <th>Difficulty</th>
                         </tr>
                     </thead>
                     <tbody>
