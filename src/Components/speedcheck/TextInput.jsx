@@ -116,7 +116,7 @@ const TextInput = (props) => {
             return (
                 <React.Fragment>
                     <div className="input-group mb-3">
-                        <input type="text" name="entry" id="entry" autoComplete="off" onPaste={pastHandler} onChange={changeHandler} value={state.entry} disabled={state.isDisabled} className="form-control" placeholder="Metni giriniz..." />
+                        <input type="text" name="entry" id="entry" autoComplete="off" onPaste={pastHandler} onChange={changeHandler} value={state.entry} disabled={state.isDisabled} className="form-control" placeholder="Write Text..." />
                         <div className="input-group-append">
                             <button className={`btn ${theme.button}`} onClick={resetState} type="button" id="button-addon2"><i className="fas fa-undo"></i></button>
                         </div>
